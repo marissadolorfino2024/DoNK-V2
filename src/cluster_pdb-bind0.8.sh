@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=cluster
+#SBATCH --job-name=cluster0.8
 #SBATCH --account=tsztain_owned1
 #SBATCH --partition=spgpu2
 #SBATCH --gres=gpu:1
@@ -14,7 +14,7 @@
 
 echo "clustering with sequence identity 0.8 threshold"
 
-time foldseek easy-cluster data/pdb-bind-receptor_pdbs/ prod/clustering_results_0.8sim/pdb-bind_clustering intermediate/cluster_tmp --min-seq-id 0.8
+time foldseek easy-multimercluster data/pdb-bind-receptor_pdbs/ prod/clustering_results_0.8sim/pdb-bind_clustering intermediate/cluster_tmp_0.8 --tmscore-threshold 0.8
 
 echo "clustering complete!"
 
